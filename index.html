@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>game puzzle</title>
+</head>
+<body>
+<img src="images/panda_1.jpg" id="image1" alt="monkey_1" onclick="clickImage(1)"/>
+
+<span id="checked"></span> <br>
+
+<img src="images/panda_2.jpg" id="image2" alt="monkey_2" onclick="clickImage(2)"/> <br>
+
+<img src="images/panda_3.jpg" id="image3" alt="monkey_3" onclick="clickImage(3)"/> <br>
+
+<img src="images/panda_4.jpg" id="image4" alt="monkey_4" onclick="clickImage(4)"/> <br>
+
+<img src="images/monkey_5.jpg" id="image5" alt="panda_5" onclick="clickImage(5)"/> <br>
+
+<script>
+
+    function clickImage(num) {
+
+        let panda = "panda_" + num;
+
+        let monkey = "monkey_" + num;
+
+        let img = document.getElementById("image" + num);
+
+        switch (img.alt) {
+
+            case panda:
+
+                img.alt = monkey;
+
+                break;
+
+            case monkey:
+
+                img.alt = panda;
+
+                break;
+        }
+
+        document.getElementById("image" + num).src = "images/" + img.alt + ".jpg"
+
+        let altImage1 = document.getElementById('image1').alt;
+
+        let altImage2 = document.getElementById('image2').alt;
+
+        let altImage3 = document.getElementById('image3').alt;
+
+        let altImage4 = document.getElementById('image4').alt;
+
+        let altImage5 = document.getElementById('image5').alt;
+
+        if ((altImage1 == 'panda_1' && altImage2 == 'panda_2' && altImage3 == 'panda_3' && altImage4 == 'panda_4' && altImage5 == 'panda_5') ||
+
+            (altImage1 == 'monkey_1' && altImage2 == 'monkey_2' && altImage3 == 'monkey_3' && altImage4 == 'monkey_4' && altImage5 == 'monkey_5')
+
+        ) {
+
+            document.getElementById('checked').innerHTML = 'you are victory';
+
+        } else {
+
+            document.getElementById('checked').innerHTML = 'try again';
+
+        }
+
+    }
+
+
+
+
+
+</script>
+</body>
+</html>
